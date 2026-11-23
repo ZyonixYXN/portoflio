@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Александър Матев — Портфолио</title>
+  <meta name="description" content="Личен сайт и интерактивен учебен план за стажантската програма.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Onest:wght@600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">АМ</a>
+      <nav class="nav" aria-label="Основна навигация">
+        <a href="#about">За мен</a>
+        <a href="#learning">Какво уча</a>
+        <a href="#plan">Учебен план</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Смени темата">
+        <span id="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+    <section class="hero container">
+      <p class="eyebrow">// здравей, аз съм</p>
+      <h1>Александър Матев</h1>
+    </section>
+
+    <section id="about" class="container section">
+      <h2 class="section-title"><span class="num">01</span> За мен</h2>
+
+      <div class="about-grid">
+        <article class="card">
+          <h3>Кой съм</h3>
+          <p>
+            Аз съм Александър и съм на 17 години. Обичам да прекарвам време с
+            приятели онлайн и навън. Свободното си време прекарвам главно пред
+            компютъра, където основно играя видео игри и гледам сериали. Покрай
+            прекомерното използване на компютъра доста ми допадна софтуерната
+            инжинерност като възможност за кариерно развитие.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Защо искам да участвам в стажа</h3>
+          <p>
+            Искам да работя по истински проекти редом с опитни хора, да получавам
+            обратна връзка за кода си и да науча как се работи в екип.
+            Стажът ми се струва като идеална възможност за развитие на моите умения,
+            за трупане на опит и за създаване на нови връзки.
+          </p>
+        </article>
+
+        <article class="card card-wide">
+          <h3>Какво вече умея</h3>
+          <ul class="skills">
+            <li>Висока компюърна грамотност</li>
+            <li>C#(средно ниво)</li>
+            <li>HTML(начинаещо ниво)</li>
+            <li>CSS(начинаещо ниво)</li>
+            <li>JavaScript(начинаещо ниво)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="learning" class="container section">
+      <h2 class="section-title"><span class="num">02</span> Три неща, които искам да науча</h2>
+
+      <div class="learn-grid">
+        <article class="card learn-card">
+          <span class="learn-num">1</span>
+          <h3>Git и GitHub</h3>
+          <p>За да пазя историята на кода си и да работя в екип.</p>
+          <p class="first-step"><strong>Първа стъпка:</strong> да създам GitHub профил и да кача този сайт в хранилище.</p>
+        </article>
+
+        <article class="card learn-card">
+          <span class="learn-num">2</span>
+          <h3>Адаптивен дизайн</h3>
+          <p>За да изглеждат сайтовете ми добре на всеки екран.</p>
+          <p class="first-step"><strong>Първа стъпка:</strong> изучаването на адаптивния уеб дизайн и правилното конфигуриране на мета таг за изглед</p>
+        </article>
+
+        <article class="card learn-card">
+          <span class="learn-num">3</span>
+          <h3>Работа с API</h3>
+          <p>За да показвам истински данни от интернет в сайтовете си.</p>
+          <p class="first-step"><strong>Първа стъпка:</strong>да направя малка страница, която взима и показва времето с fetch()(например)</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 2. ИНТЕРАКТИВЕН УЧЕБЕН ПЛАН ===== -->
+    <section id="plan" class="container section">
+      <h2 class="section-title"><span class="num">03</span> Учебен план</h2>
+
+      <!-- 4. Показване на напредъка. Числата се попълват от JavaScript. -->
+      <div class="progress-box card">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-value" id="stat-total">0</span>
+            <span class="stat-label">общо цели</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="stat-done">0</span>
+            <span class="stat-label">завършени</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="stat-percent">0%</span>
+            <span class="stat-label">изпълнение</span>
+          </div>
+        </div>
+
+        <div class="progress-bar" role="progressbar" aria-label="Напредък" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <form id="goal-form" class="goal-form" novalidate>
+        <label for="goal-input" class="visually-hidden">Нова учебна цел</label>
+        <input
+          type="text"
+          id="goal-input"
+          placeholder="Напр. „Да науча CSS Grid“"
+          maxlength="100"
+          autocomplete="off">
+        <button type="submit" class="btn btn-primary">Добави</button>
+      </form>
+  
+      <p id="form-error" class="form-error" aria-live="polite"></p>
+
+      <!-- Бутони за филтриране. data-filter казва на JavaScript кой филтър е това. -->
+      <div class="filters" role="group" aria-label="Филтър на целите">
+        <button type="button" class="filter-btn active" data-filter="all">Всички</button>
+        <button type="button" class="filter-btn" data-filter="active">Активни</button>
+        <button type="button" class="filter-btn" data-filter="completed">Завършени</button>
+      </div>
+
+      <!-- Списъкът с цели. Попълва се изцяло от JavaScript. -->
+      <ul id="goal-list" class="goal-list"></ul>
+
+      <!-- Съобщение при празен списък или празен филтър -->
+      <p id="empty-message" class="empty-message" hidden></p>
+    </section>
+
+  </main>
+</body>
+</html>
